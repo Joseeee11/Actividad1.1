@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+
+//importar controladores OJO
+var solicitanteControllers = require("../controllers/solicitante.c.js")
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Actividad 1.1' });
 });
