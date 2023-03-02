@@ -41,6 +41,29 @@ class equipoControllers {
     };
   };
 
+   //DELETE esta función eliminará un determinado equipo por medio de su identificador
+    eliminar(equipo){
+
+        //primero debemos de saber si el usuario ingreso el serial del equipo a eliminar
+        if (!equipo.Serial) {
+            return ('Debes ingresar el serial del equipo a eliminar :v');
+        }else{
+            console.log('eliminar'); //para saber que ya ha eliminado
+
+            //recorremos cada equipo para hallar el serial del equipo a eliminar
+            for (let i = 0; i < databased.database.equipos.length; i++) {
+                //Si su serial es igual:
+                if (databased.database.equipos[i].Serial === equipo.Serial) {
+
+                    let equipoEliminado = databased.database.equipos.splice(i, 1); //sacamos el equipo a eliminar de la BD
+                    console.log(equipoEliminado); //para ver cual es el equipo eliminado
+                    return ('SE HA ELIMINADO CON EXITO EL EQUIPO'); //retornamos
+                };
+            };
+            return (`No existe el equipo con la serial: ${equipo.Serial}`); 
+        };
+    };
+
 }
 
 module.exports = new equipoControllers();
