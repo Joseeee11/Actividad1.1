@@ -10,14 +10,14 @@ router.get('/', function(req, res, next) {
   res.send(espaciosControllers.listar());
 });
   
-// EL METODO POST PARA AGREGAR, OJITO
+// EL METODO POST PARA AGREGAR
 router.post('/', function(req, res, next){
   let espacios = req.body
   res.send(espaciosControllers.crear(espacios));
 })
 
 // METODO PUT, PARA EDITAR 
-router.put('/', (req, res, next) => { //C VA A BUSCAR POR EL URL
+router.put('/', (req, res, next) => { 
   let espacios = req.body;
   console.log(espacios);
   res.send(espaciosControllers.editar(espacios));

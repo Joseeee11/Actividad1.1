@@ -11,7 +11,7 @@ class reserva_equiposControllers {
 
     //GET esta funcion muestra los equipos reservados por una fecha específica
     listar_Fecha(fechaBuscar){
-        
+
         console.log('listando por fecha');
         console.log(fechaBuscar); //mostramos la fecha a buscar
         let resultado = []; //declaramos array donde guardaremos los resultados que concuerden con la fecha solicitada
@@ -29,6 +29,31 @@ class reserva_equiposControllers {
         };
     
         return resultado; //mostramos resultado
+    };
+
+    //GET esta funcion muestra los equipos reservados por un rango de fecha
+    listar_FechaRango(FechaI, FechaF){
+
+        //Declaramos array donde se guardaran las reservas de ese rango de fecha
+        let resultado = [];
+    
+        //Recorremos cada reserva buscando que si las fechas reservadas son mayores que la Fecha Inicial solicitada y si las fechas reservadas son menores a la Fecha Final solicitada, se muestren
+        for (let i = 0; i < databased.database.reserva_equipo.length; i++) {
+    
+          if (FechaI <= databased.database.reserva_equipo[i].Fecha && FechaF >= databased.database.reserva_equipo[i].Fecha){
+            resultado.push(databased.database.reserva_equipo[i]); //agregamos a resultado las fechas que cumplen con la condición
+          };
+    
+        };
+    
+        //Si resultado no contiene ningun elemento, significa que no se encontraron reservas en ese rango de fechas
+        if (resultado.length === 0) {
+          return (`No hay reservas durante las fechas: ${FechaI} a ${FechaF}`);
+        };
+    
+        return resultado; //retornamos resultado que es igual a las resevas de esas fechas
+    
+        //Escribimos en la url: /20220101/20230101 como prueba
     };
 
 

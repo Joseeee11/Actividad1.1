@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-// EL METODO POST PARA AGREGAR, OJITO
+// EL METODO POST PARA AGREGAR
 router.post('/', function(req, res, next){
   let solicitantes = req.body
   res.send(solicitanteControllers.crear(solicitantes));
