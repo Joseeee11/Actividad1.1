@@ -16,5 +16,13 @@ router.post('/', function(req, res, next){
   res.send(espaciosControllers.crear(espacios));
 })
 
+// METODO PUT, PARA EDITAR 
+router.put('/', (req, res, next) => { //C VA A BUSCAR POR EL URL
+  let espacios = req.body;
+  console.log(espacios);
+  res.send(espaciosControllers.editar(espacios));
+  
+});
+
 
 module.exports = router;

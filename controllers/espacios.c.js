@@ -39,6 +39,39 @@ class espaciosControllers {
         };
     }
 
+  //PUT, esta funcion edita un espacio determinado por el id, recibimos el cuerpo de la respuesta y hacemos la modificacion 
+  editar(espacios){
+
+    console.log(espacios); //vemos que se quiere modificar
+
+    //verificamos que tenga id
+    if (!espacios.id) {
+      return ('Debes ingresar el identificador (id) del espacio para editar');
+    }else{
+
+      //recorremos todos los espacios hasta encontrar el id del espacio a cambiar
+      for (let i = 0; i < databased.database.espacio.length; i++) {
+        if (databased.database.espacio[i].id === espacios.id) {
+
+          console.log(databased.database.espacio); //vemos el espacio que se cambiará
+
+          let Modificar = databased.database.espacio[i]; //lo guardamos en una variable
+          let espaciosActualizado = espacios; //guardamos el espacio modificado
+          console.log(espaciosActualizado); //vemos el espacio modificado
+
+          //Con Object.assing asignamos un objeto a otro, modificanco las propiedades del objeto original
+          Object.assign(Modificar, espaciosActualizado);
+
+          console.log(databased.database.espacio); //vemos en consola para verificar todos los espacios y confirmar que se haya actualizado
+
+          return ('SE HA EDITADO CORECTAMENTE EL ESPACIO');
+        };
+      };
+      return (`No existe el espacio solicitado con el id: ${espacios.id}`);
+    };
+  };
+
+
 };
 
 module.exports = new espaciosControllers();
