@@ -8,6 +8,11 @@ var reserva_equiposControllers = require("../controllers/reserva_equipos.c.js")
 router.get('/', function(req, res, next) {
   res.send(reserva_equiposControllers.listar());
 });
+  //listar por fecha
+router.get('/:Fecha', function(req, res, next) {
+  let fechaBuscar = req.params.Fecha; //para guardar parametro "Fecha"
+  res.send(reserva_equiposControllers.listar_Fecha(fechaBuscar));
+});
 
 //DELETE, PARA ELIMINAR
 router.delete('/', function(req, res, next){
