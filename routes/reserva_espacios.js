@@ -9,5 +9,11 @@ router.get('/', function(req, res, next) {
   res.send(reserva_espaciosControllers.listar());
 });
 
+//DELETE, PARA ELIMINAR
+router.delete('/', function(req, res, next){
+  let reserva_espacios = req.body
+  res.send(reserva_espaciosControllers.eliminar(reserva_espacios));
+})
+
 
 module.exports = router;

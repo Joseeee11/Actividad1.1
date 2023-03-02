@@ -9,5 +9,10 @@ router.get('/', function(req, res, next) {
   res.send(reserva_equiposControllers.listar());
 });
 
+//DELETE, PARA ELIMINAR
+router.delete('/', function(req, res, next){
+  let reserva_equipos = req.body;
+  res.send(reserva_equiposControllers.eliminar(reserva_equipos));
+})
 
 module.exports = router;
