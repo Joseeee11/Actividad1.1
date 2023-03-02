@@ -5,11 +5,14 @@ class solicitanteControllers {
 
     //GET esta funcion muestra el solicitante de la BD "dataBase"
     listar(){
-    console.log('listar solicitantes');
-    return databased.database.solicitante;
+        console.log('listar solicitantes');
+        return databased.database.solicitante;
     };
+       //mostrar por fecha
 
-        //POST esta función para crear un nuevo solicitante
+       
+
+    //POST esta función para crear un nuevo solicitante
     crear(solicitantes){
       if (!solicitantes.Nombre_apellido || !solicitantes.CI || !solicitantes.fecha_nacimiento || !solicitantes.direccion || !solicitantes.nombre_usuario_unico || !solicitantes.contraseña  || !solicitantes.numero_tlf) {
         return ("No se agregó el solicitante, se requiere: Nombre y Apellido, CI, Usuario, Contraseña, Fecha de Nacimiento, Dirección y Número de Tlf");

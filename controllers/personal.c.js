@@ -5,8 +5,8 @@ class personalControllers {
 
     // GET esta funcion muestra el personal de la BD "dataBase"
     listar(){
-    console.log('listar personal');
-    return databased.database.personal;
+        console.log('listar personal');
+        return databased.database.personal;
     };
 
     //POST crear un personal dentro de la BD, con un identificador (CI) único
@@ -19,7 +19,7 @@ class personalControllers {
 
         }else{
 
-        //recorrer cada personal para verificar que la CI no se repita, es decir sea un identificador único
+            //recorrer cada personal para verificar que la CI no se repita, es decir sea un identificador único
             for (let i = 0; i < databased.database.personal.length; i++) {
                 if (personalc.CI === databased.database.personal[i].CI){
                 return (`No se agrego porque el personal con la C.I: ${personalc.CI}  ya existe`);
