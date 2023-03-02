@@ -9,6 +9,12 @@ var equipoControllers = require("../controllers/equipo.c.js")
 router.get('/', function(req, res, next) {
   res.send(equipoControllers.listar());
 });
+
+//DELETE, PARA ELIMINAR
+router.delete('/', function(req, res, next){
+  let equipo = req.body
+  res.send(equipoControllers.eliminar(equipo));
+})
   
 
 
