@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 
-//importar controladores OJO
 var reserva_equiposControllers = require("../controllers/reserva_equipos.c.js")
 
 router.get('/', function(req, res, next) {

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//importar controladores OJO
+//importar controladores
 var equipoControllers = require("../controllers/equipo.c.js")
 
 
