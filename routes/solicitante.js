@@ -4,9 +4,9 @@ var router = express.Router();
 
 var solicitanteControllers = require("../controllers/solicitante.c.js")
 
+//GET para listar
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Actividad 1.1' });
+  res.send(solicitanteControllers.listar());
 });
-
 
 module.exports = router;

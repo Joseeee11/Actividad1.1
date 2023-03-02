@@ -5,9 +5,10 @@ var router = express.Router();
 var espaciosControllers = require("../controllers/espacios.c.js")
 
 
+//GET para listar
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Actividad 1.1' });
-  });
+  res.send(espaciosControllers.listar());
+});
   
 
 module.exports = router;

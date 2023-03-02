@@ -3,9 +3,9 @@ var router = express.Router();
 
 var personalControllers = require("../controllers/personal.c.js")
 
+//GET para listar
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Actividad 1.1' });
-  });
-  
+  res.send(personalControllers.listar());
+});
 
 module.exports = router;

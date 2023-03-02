@@ -7,7 +7,7 @@ class reserva_espaciosControllers {
     listar(){
     console.log('listar'); //avisar que va a listar
     return databased.database.reserva_espacio;
-    }
+    };
 
 };
 
