@@ -10,4 +10,11 @@ router.get('/', function(req, res, next) {
 });
 
 
+// EL METODO POST PARA AGREGAR, OJITO
+router.post('/', function(req, res, next){
+  let reserva_espacios = req.body
+  res.send(reserva_espaciosControllers.crear(reserva_espacios));
+})
+
+
 module.exports = router;

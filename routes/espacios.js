@@ -10,5 +10,11 @@ router.get('/', function(req, res, next) {
   res.send(espaciosControllers.listar());
 });
   
+// EL METODO POST PARA AGREGAR, OJITO
+router.post('/', function(req, res, next){
+  let espacios = req.body
+  res.send(espaciosControllers.crear(espacios));
+})
+
 
 module.exports = router;
