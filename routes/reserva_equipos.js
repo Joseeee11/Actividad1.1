@@ -15,4 +15,11 @@ router.delete('/', function(req, res, next){
   res.send(reserva_equiposControllers.eliminar(reserva_equipos));
 })
 
+// EL METODO POST PARA AGREGAR, OJITO
+router.post('/', function(req, res, next){
+  let reserva_equipos = req.body
+  res.send(reserva_equiposControllers.crear(reserva_equipos));
+})
+
+
 module.exports = router;

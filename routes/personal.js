@@ -8,4 +8,12 @@ router.get('/', function(req, res, next) {
   res.send(personalControllers.listar());
 });
 
+
+// EL METODO POST PARA AGREGAR, OJITO
+router.post('/', function(req, res, next){
+  let personalc = req.body
+  res.send(personalControllers.crear(personalc));
+})
+
+
 module.exports = router;

@@ -16,6 +16,10 @@ router.delete('/', function(req, res, next){
   res.send(equipoControllers.eliminar(equipo));
 })
   
-
+// EL METODO POST PARA AGREGAR
+router.post('/', function(req, res, next){
+  let equipo = req.body
+  res.send(equipoControllers.crear(equipo));
+})
 
 module.exports = router;
