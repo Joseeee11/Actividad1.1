@@ -9,6 +9,28 @@ class reserva_equiposControllers {
         return databased.database.reserva_equipo;
     };
 
+    //GET esta funcion muestra los equipos reservados por una fecha específica
+    listar_Fecha(fechaBuscar){
+        
+        console.log('listando por fecha');
+        console.log(fechaBuscar); //mostramos la fecha a buscar
+        let resultado = []; //declaramos array donde guardaremos los resultados que concuerden con la fecha solicitada
+    
+        //Recorremos todos los elementos de "reserva_equipo" y los que cumplan con la condición se agregarán en el array resultado.
+        for (let i = 0; i < databased.database.reserva_equipo.length; i++) {
+          if (fechaBuscar === databased.database.reserva_equipo[i].Fecha){
+            resultado.push(databased.database.reserva_equipo[i]); //agregamos a resultado
+          };
+        };
+    
+        //Si resultado no contiene ningun elemento, significa que no se encontraron reservas con esa fecha:
+        if (resultado.length === 0) {
+          return (`No hay reservas durante esta fecha: ${fechaBuscar}`);
+        };
+    
+        return resultado; //mostramos resultado
+    };
+
 
     //DELETE una funcion para eliminar determinada reserva por medio de in identificador (id)
     eliminar(reserva_equipos){
