@@ -8,6 +8,11 @@ var reserva_espaciosControllers = require("../controllers/reserva_espacios.c.js"
 router.get('/', function(req, res, next) {
   res.send(reserva_espaciosControllers.listar());
 });
+  //mostrar por fecha
+router.get('/:Fecha', function(req, res, next) {
+  let fechaBuscar = req.params.Fecha;
+  res.send(reserva_espaciosControllers.listar_Fecha(fechaBuscar));
+});
 
 //DELETE, PARA ELIMINAR
 router.delete('/', function(req, res, next){

@@ -9,6 +9,24 @@ class reserva_espaciosControllers {
     return databased.database.reserva_espacio;
   };
 
+  //GET esta funcion muestra los espacios reservados por una fecha
+  listar_Fecha(fechaBuscar){
+    console.log(fechaBuscar); //mostramos la fecha a buscar
+    console.log('listando fecha'); //sabemos que esta listando por fecha
+    let resultado = []; //para guardar los resultados, es decir, las reservas que coincidan con la fecha
+
+    //Recorremos todos los elementos de "reserva_espacio" y los que cumplan con la condición se agregarán en el array resultado.
+    for (let i = 0; i < databased.database.reserva_espacio.length; i++) {
+      if (fechaBuscar === databased.database.reserva_espacio[i].Fecha){
+        resultado.push(databased.database.reserva_espacio[i]); //agregamos a resultado
+      }
+    };
+    if (resultado.length === 0) {
+      return (`No hay reservas durante esta fecha: ${fechaBuscar}`);
+    };
+    return resultado; //retornamos el resultado
+  };
+
   //POST crear una reserva dentro de la BD, con un identificador (ID) único
   crear(reserva_espacios){
 
